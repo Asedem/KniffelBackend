@@ -26,9 +26,15 @@ class MemberService {
         if (getMembersOfGameIfPresent(game) == null)
             allGameMembers.put(game, arrayOf(member))
 
-        TODO("Hier kommt noch rein, was passiert, wenn man" +
-                "schon user in der Liste/Array hat und einen hinzu" +
-                "fügen möchte... (Array -> List)")
+        allGameMembers.getIfPresent(game)
+            ?.plus(member)
+            ?.distinct()
+            ?.toIntArray()
+            ?.toTypedArray()?.let {
+                allGameMembers.put(game,
+                    it
+                )
+            }
     }
 
     /**

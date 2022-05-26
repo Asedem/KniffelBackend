@@ -13,7 +13,7 @@ package de.asedem.kniffelbackend.model
  * @property game The game where the dices are thrown
  * @property member The member of the [game] who threw the dices
  */
-class ReceiveRequest(
+class ThrowDTO(
     private val one: Int,
     private val two: Int,
     private val three: Int,
