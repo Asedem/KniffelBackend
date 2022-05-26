@@ -27,7 +27,7 @@ class GameServiceTest {
 
     @Test
     fun shouldReturnErrorIfTheMatchDontContainsTheMember() {
-        gameService.addMembersToGame(0, memberArray2)
+        gameService.memberService.addMembersToGame(0, memberArray2)
         val sendRequest = gameService
             .calculateDices(ReceiveRequest(1, 2, 2, 5, 6, 0, 0));
         assertEquals(sendRequest.error, true)
@@ -37,7 +37,7 @@ class GameServiceTest {
 
     @Test
     fun shouldCalculateAllDicesIfNoPatternMatches() {
-        gameService.addMembersToGame(0, memberArray1)
+        gameService.memberService.addMembersToGame(0, memberArray1)
         assertEquals(gameService
             .calculateDices(ReceiveRequest(1,2,2,5,6, 0, 0)).points, 16)
     }
